@@ -9,6 +9,7 @@ public class MediaLibRunnerScope
     MediaLib myLib = new MediaLib();
     myLib.addMovie(new Movie("Raiders of the Lost Ark", 1.9));
     myLib.addBook(new Book("1984", "Orwell"));
-    myLib.addSong(new Song("In Your Eyes"));
+    myLib.addSong(new Song("In Your Eyes", 3.5));
     System.out.println(MediaLib.getOwner() + "'s Library:\n" + myLib);
   }
+}

@@ -10,6 +10,7 @@ public class MediaLib
   private Song song;
   public static String owner = "PLTW";
   private static int numEntries = 0;
+  private String date = DateManager.getCalendar();
 
 
 public static int getNumEntries(){
@@ -23,8 +24,9 @@ public static int getNumEntries(){
     return MediaLib.owner;
   }
 
-  public static void changeOwner(String newOwner){
+  public static String changeOwner(String newOwner){
     MediaLib.owner = newOwner;
+    return MediaLib.owner;
   } 
   
   public void addBook(Book b)
@@ -32,6 +34,7 @@ public static int getNumEntries(){
     if (book == null) {
     book = b;
       numEntries++;
+      date = DateManager.getCalendar();
     }
     else{
     System.out.println("Library already has a book.");
@@ -41,8 +44,9 @@ public static int getNumEntries(){
   public void addSong(Song s)
   {
     if (song == null) {
-    song = b;
+    song = s;
       numEntries++;
+      date = DateManager.getCalendar();
     }
     else{
     System.out.println("Library already has a song.");
@@ -54,6 +58,7 @@ public static int getNumEntries(){
     if (movie == null) {
       movie = a;
       numEntries++;
+      date = DateManager.getCalendar();
     }
     else{
       System.out.println("Library already has a movie.");
@@ -62,13 +67,20 @@ public static int getNumEntries(){
   }
 
   public String toString() {
-  String info = "The current book in the library is: " + book.getTitle() + " by " + book.getAuthor();
+    String info = "";
+    if (book!= null){
+  info += "The current book in the library is: " + book.getTitle() + " by " + book.getAuthor();}
   if (movie != null) {
     info += "\nThe current movie in the library is: " + movie.getTitle() + " with a duration of " + movie.getDuration() + " hours";
   }
     if (song != null) {
-      info += "\nThe current song in the library is: " + song.getTitle() + " with a duration of " + movie.getDuration() + " hours";
+      info += "\nThe current song in the library is: " + song.getTitle() + " with a duration of " + song.getDuration() + " hours";
     }
+
+  
+      info += "\nThe date of last modification is " + this.date;
+
+    
   return info;
   }
 

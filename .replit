@@ -1,6 +1,6 @@
 compile = "javac -classpath .:target/dependency/* -d . $(find . -type f -name '*.java')"
-run = "java -classpath .:target/dependency/* MediaLibRunner"
-entrypoint = "MediaLibRunner.java"
+run = "java -classpath .:target/dependency/* MediaLibRunnerFinal"
+entrypoint = "MediaLibRunnerFinal.java"
 hidden = ["**/*.class"]
 
 [packager]
@@ -60,5 +60,5 @@ mainClass = "Main"
 
 [deployment]
 build = ["javac", "-classpath", ".:target/dependency/*", "-d", ".", "$(find . -type f -name '*.java')"]
-run = ["java", "-classpath", ".:target/dependency/*", "MediaLibRunner"]
+run = ["java", "-classpath", ".:target/dependency/*", "MediaLibRunnerFinal"]
 deploymentTarget = "cloudrun"
